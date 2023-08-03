@@ -81,63 +81,13 @@ class _SecondPageState extends State<SecondPage> {
     return Scaffold(
       body: Column(
         children: [
-          Stack(
-            alignment: Alignment.topCenter,
-            children: <Widget>[
-              Image.asset('assets/images/warzywa.jpg'),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                  ),
-                  width: 128,
-                  height: 32,
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        'assets/images/lidl.jpg',
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 8.0),
-                        child: Text(
-                          "Lidl",
-                          style: TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const Align(
-                alignment: Alignment.topRight,
-                child: Padding(
-                  padding: EdgeInsets.all(32.0),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.share,
-                        color: Colors.white,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.favorite_border,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+          Expanded(child: _buildTop(context)),
           const Padding(
             padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
             child: Row(
               children: [
                 Icon(Icons.shopping_bag, color: Color(0xFF008080)),
-                Text("Artykuły spożywcze"),
+                Text("Artykuły spożywcze"), //TODO: brak stylowani a na ssie jest, w tych obok też
                 Spacer(),
                 Text(
                   "30.00 zł",
@@ -231,7 +181,7 @@ class _SecondPageState extends State<SecondPage> {
                   children: [
                     Icon(Icons.account_circle_outlined, size: 40, color: Color(0xFF008080)),
                     Text(
-                      "Przyjazny personel",
+                      "Przyjazny personel", //TODO: za duży tekst i chyba jakiś bold tam powinien być, w tych obok też
                       style: TextStyle(fontSize: 24),
                     )
                   ],
@@ -273,7 +223,7 @@ class _SecondPageState extends State<SecondPage> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                backgroundColor: const Color(0xFF008080)),
+                    backgroundColor: const Color(0xFF008080)),
                 child: const Text(
                   'Zarezerwuj',
                   style: TextStyle(fontSize: 16),
@@ -284,6 +234,67 @@ class _SecondPageState extends State<SecondPage> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildTop(BuildContext context) {
+    //TODO: wyciągnij to do osobnego pliku jako stateless widget SecondPageTop
+    return Stack(
+      fit: StackFit.expand, //przez brak tego ci nie działał Align
+      children: <Widget>[
+        Image.asset('assets/images/warzywa.jpg', fit: BoxFit.fitWidth),
+        //fitWidth, żeby na szerokość zdjęcie się wpasowało
+        Align(
+          alignment: Alignment.bottomLeft,
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: _buildShopTitle(),
+          ),
+        ),
+        Align(
+          alignment: Alignment.topRight,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 8),
+            child: _buildIcons(),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildShopTitle() {
+    final image = Image.asset('assets/images/lidl.jpg');
+    return Row(
+      children: [
+        Container(
+          constraints: const BoxConstraints(maxHeight: 48), //Tak się robi jak masz za duże photo
+          child: CircleAvatar(
+            radius: 20,
+            backgroundImage: image.image,
+          ),
+        ),
+        const SizedBox(width: 8),
+        const Text(
+          "Lidl",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ), //nie da sie na to patrzeć daj te TextStyle wszystkie do AppText
+        ),
+      ],
+    );
+  }
+
+  Widget _buildIcons() {
+    return const Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      //dzięki temu leci do prawej, bo Row naturalnie zaczyna układać widety od lewej do prawej
+      children: [
+        Icon(Icons.share, color: Colors.white), //TODO: nie ma tych czarnych gówien za ikonami
+        SizedBox(width: 8),
+        Icon(Icons.favorite_border, color: Colors.white),
+      ],
     );
   }
 }
