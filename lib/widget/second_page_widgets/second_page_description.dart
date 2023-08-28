@@ -7,27 +7,40 @@ class Description extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
-          ConstrainedBox(
-            constraints: const BoxConstraints(minWidth: 200, minHeight: 25),
-            child: const Text("CO JEST W OFERCIE?", style: AppText.descriptionbold, textAlign: TextAlign.left),
-          ),
-          ConstrainedBox(
-            constraints: const BoxConstraints(minWidth: 200, minHeight: 30),
-            child: const Text(
-              "To niespodzianka - Paczka będzie wypełniona pysznym jedzonkiem, które nie sprzedało się...",
-              style: TextStyle(fontSize: 16),
-            ),
-          ),
-          ConstrainedBox(
-            constraints: const BoxConstraints(minWidth: 200),
-            child: const Text("Artykuły Spożywcze      Wegetariańskie",
-                style: AppText.descriptionboldcolor, textAlign: TextAlign.left),
-          ),
+          _buildTop("CO JEST W OFERCIE?"),
+          _buildCenter("To niespodzianka - Paczka będzie wypełniona pysznym jedzonkiem, które nie sprzedało się..."),
+          _buildBottom("Artykuły Spożywcze", "Wegetariańskie"),
         ],
       ),
     );
   }
+}
+
+Widget _buildTop(String title) {
+  return ConstrainedBox(
+      constraints: const BoxConstraints(minWidth: 400, minHeight: 25),
+      child: Text(title, style: AppText.descriptionbold, textAlign: TextAlign.left));
+}
+
+Widget _buildCenter(String title) {
+  return ConstrainedBox(
+    constraints: const BoxConstraints(minWidth: 400, minHeight: 50),
+    child: Text(
+      title,
+      style: const TextStyle(fontSize: 16),
+    ),
+  );
+}
+
+Widget _buildBottom(String title, String title1) {
+  return Row(
+    children: [
+      Text(title, style: AppText.descriptionboldcolor, textAlign: TextAlign.left),
+      const SizedBox(width: 24),
+      Text(title1, style: AppText.descriptionboldcolor, textAlign: TextAlign.left),
+    ],
+  );
 }

@@ -37,7 +37,7 @@ class SecondPage extends StatelessWidget {
           Divider(color: Colors.grey),
           Expanded(child: Description(), flex: -1),
           Divider(color: Colors.grey),
-          SizedBox(height: 20),
+          SizedBox(height: 8),
           Expanded(child: About(), flex: -1),
           Divider(color: Colors.grey),
           Expanded(child: BottomButton(title: 'Zarezerwuj'), flex: -1),

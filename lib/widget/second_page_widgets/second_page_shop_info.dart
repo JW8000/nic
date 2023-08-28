@@ -42,7 +42,7 @@ Widget _buildElement(IconData iconData, String title) {
       Icon(iconData, size: 24, color: const Color(0xFF008080)),
       const SizedBox(width: 4),
       ConstrainedBox(
-        constraints: const BoxConstraints(minWidth: 200, minHeight: 25),
+        constraints: const BoxConstraints(minWidth: 200, minHeight: 16),
         child: Text(
           title,
           style: const TextStyle(fontSize: 16),
