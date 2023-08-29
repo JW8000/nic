@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../app_text/second_page_text.dart';
+
 class ShopInfo extends StatelessWidget {
   const ShopInfo({Key? key}) : super(key: key);
 
@@ -13,20 +15,14 @@ class ShopInfo extends StatelessWidget {
             children: [
               _buildElement(Icons.shopping_bag, "Artykuły spożywcze"),
               const Spacer(),
-              const Text(
-                "30.00 zł",
-                style: TextStyle(fontSize: 16, color: Colors.grey, decoration: TextDecoration.lineThrough),
-              ),
+              const Text("30.00 zł", style: AppText.priceSmall),
             ],
           ),
           Row(
             children: [
               _buildElement(Icons.stars_sharp, "4,8 (485)"),
               const Spacer(),
-              const Text(
-                "9,99 zł",
-                style: TextStyle(fontSize: 24, color: Color(0xFF008080), fontWeight: FontWeight.bold),
-              ),
+              const Text("9,99 zł", style: AppText.priceBig),
             ],
           ),
           _buildElement(Icons.timer, "Odbiór: 10:00 - 14:00"),
@@ -43,10 +39,7 @@ Widget _buildElement(IconData iconData, String title) {
       const SizedBox(width: 4),
       ConstrainedBox(
         constraints: const BoxConstraints(minWidth: 200, minHeight: 16),
-        child: Text(
-          title,
-          style: const TextStyle(fontSize: 16),
-        ),
+        child: Text(title, style: const TextStyle(fontSize: 16)),
       ),
     ],
   );

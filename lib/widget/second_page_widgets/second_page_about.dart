@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../app_text/second_page_text.dart';
+
 class About extends StatelessWidget {
   const About({Key? key}) : super(key: key);
 
@@ -13,9 +15,12 @@ class About extends StatelessWidget {
         _buildRate("4,8 / 5,0", Icons.stars_sharp),
         const SizedBox(height: 8),
         const Divider(color: Colors.grey),
-        const Padding(
-          padding: EdgeInsets.only(top: 8.0),
-          child: Text("3 NAJLEPSZE RZECZY", style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF008080))),
+        Padding(
+          padding: const EdgeInsets.only(top: 8.0),
+          child: Text(
+            "3 NAJLEPSZE RZECZY",
+            style: AppText.textBoldColor,
+          ),
         ),
         _buildElement("Przyjazny personel", Icons.account_circle_outlined),
         _buildElement("Pyszne jedzenie", Icons.handshake),
@@ -34,7 +39,7 @@ class About extends StatelessWidget {
           const SizedBox(width: 8),
           ConstrainedBox(
             constraints: const BoxConstraints(minWidth: 200),
-            child: Text(title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            child: Text(title, style: AppText.aboutSmall),
           ),
         ],
       ),
@@ -47,10 +52,7 @@ class About extends StatelessWidget {
       children: [
         Icon(iconData, size: 40, color: const Color(0xFF008080)),
         const SizedBox(width: 8),
-        Text(
-          title,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
-        ),
+        Text(title, style: AppText.about),
       ],
     );
   }

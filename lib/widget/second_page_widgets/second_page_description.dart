@@ -21,26 +21,24 @@ class Description extends StatelessWidget {
 
 Widget _buildTop(String title) {
   return ConstrainedBox(
-      constraints: const BoxConstraints(minWidth: 400, minHeight: 25),
-      child: Text(title, style: AppText.descriptionbold, textAlign: TextAlign.left));
+    constraints: const BoxConstraints(minWidth: 400, minHeight: 25),
+    child: Text(title, style: AppText.textBold, textAlign: TextAlign.left),
+  );
 }
 
 Widget _buildCenter(String title) {
   return ConstrainedBox(
     constraints: const BoxConstraints(minWidth: 400, minHeight: 50),
-    child: Text(
-      title,
-      style: const TextStyle(fontSize: 16),
-    ),
+    child: Text(title, style: const TextStyle(fontSize: 16)),
   );
 }
 
 Widget _buildBottom(String title, String title1) {
   return Row(
     children: [
-      Text(title, style: AppText.descriptionboldcolor, textAlign: TextAlign.left),
+      Text(title, style: AppText.textBoldColor, textAlign: TextAlign.left),
       const SizedBox(width: 24),
-      Text(title1, style: AppText.descriptionboldcolor, textAlign: TextAlign.left),
+      Text(title1, style: AppText.textBoldColor, textAlign: TextAlign.left),
     ],
   );
 }

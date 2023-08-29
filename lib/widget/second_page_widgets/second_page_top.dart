@@ -9,7 +9,7 @@ class SecondPageTop extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: <Widget>[
-        _buildShopPhoto(),
+        Image.asset('assets/images/warzywa.jpg', fit: BoxFit.fitHeight),
         _buildShopTitle(),
         _buildIcons(),
       ],
@@ -17,28 +17,16 @@ class SecondPageTop extends StatelessWidget {
   }
 }
 
-Widget _buildShopPhoto() {
-  final image = Image.asset('assets/images/warzywa.jpg', fit: BoxFit.fitHeight);
-  return image;
-}
-
 Widget _buildShopTitle() {
-  final image = Image.asset('assets/images/lidl1.png');
   return Align(
     alignment: Alignment.bottomLeft,
     child: Padding(
       padding: const EdgeInsets.all(8),
       child: Row(
         children: [
-          Container(
-            constraints: const BoxConstraints(maxHeight: 56),
-            child: CircleAvatar(
-              radius: 25,
-              backgroundImage: image.image,
-            ),
-          ),
+          _buildAvatar(),
           const SizedBox(width: 8),
-          const Text("Lidl", style: AppText.shopname),
+          const Text("Lidl", style: AppText.textName),
         ],
       ),
     ),
@@ -58,6 +46,17 @@ Widget _buildIcons() {
           Icon(Icons.favorite_border, color: Colors.white),
         ],
       ),
+    ),
+  );
+}
+
+Widget _buildAvatar() {
+  final image = Image.asset('assets/images/lidl1.png');
+  return Container(
+    constraints: const BoxConstraints(maxHeight: 56),
+    child: CircleAvatar(
+      radius: 25,
+      backgroundImage: image.image,
     ),
   );
 }
