@@ -10,7 +10,7 @@ class About extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("CO MÓWIĄ INNI", style: TextStyle(fontWeight: FontWeight.bold)),
+        const Text("CO MÓWIĄ INNI", style: AppText.textBold),
         const SizedBox(height: 8),
         _buildRate("4,8 / 5,0", Icons.stars_sharp),
         const SizedBox(height: 8),
