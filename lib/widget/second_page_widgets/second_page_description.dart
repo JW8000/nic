@@ -36,9 +36,9 @@ Widget _buildCenter(String title) {
 Widget _buildBottom(String title, String title1) {
   return Row(
     children: [
-      Text(title, style: AppText.textBoldColor, textAlign: TextAlign.left),
+      Text(title, style: AppText.textBold.copyWith(color: const Color(0xFF008080)), textAlign: TextAlign.left),
       const SizedBox(width: 24),
-      Text(title1, style: AppText.textBoldColor, textAlign: TextAlign.left),
+      Text(title1, style: AppText.textBold.copyWith(color: const Color(0xFF008080)), textAlign: TextAlign.left),
     ],
   );
 }

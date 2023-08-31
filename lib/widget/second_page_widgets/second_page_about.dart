@@ -17,10 +17,7 @@ class About extends StatelessWidget {
         const Divider(color: Colors.grey),
         Padding(
           padding: const EdgeInsets.only(top: 8.0),
-          child: Text(
-            "3 NAJLEPSZE RZECZY",
-            style: AppText.textBoldColor,
-          ),
+          child: Text("3 NAJLEPSZE RZECZY", style: AppText.textBold.copyWith(color: const Color(0xFF008080))),
         ),
         _buildElement("Przyjazny personel", Icons.account_circle_outlined),
         _buildElement("Pyszne jedzenie", Icons.handshake),
@@ -39,7 +36,7 @@ class About extends StatelessWidget {
           const SizedBox(width: 8),
           ConstrainedBox(
             constraints: const BoxConstraints(minWidth: 200),
-            child: Text(title, style: AppText.aboutSmall),
+            child: Text(title, style: AppText.textBold.copyWith(fontSize: 20)),
           ),
         ],
       ),
@@ -52,7 +49,7 @@ class About extends StatelessWidget {
       children: [
         Icon(iconData, size: 40, color: const Color(0xFF008080)),
         const SizedBox(width: 8),
-        Text(title, style: AppText.about),
+        Text(title, style: AppText.textBold.copyWith(fontSize: 32)),
       ],
     );
   }

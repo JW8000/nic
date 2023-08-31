@@ -15,14 +15,14 @@ class ShopInfo extends StatelessWidget {
             children: [
               _buildElement(Icons.shopping_bag, "Artykuły spożywcze"),
               const Spacer(),
-              const Text("30.00 zł", style: AppText.priceSmall),
+              Text("30.00 zł", style: AppText.textSmall.copyWith(color: Colors.grey)),
             ],
           ),
           Row(
             children: [
               _buildElement(Icons.stars_sharp, "4,8 (485)"),
               const Spacer(),
-              const Text("9,99 zł", style: AppText.priceBig),
+              Text("9,99 zł", style: AppText.textBig.copyWith(color: const Color(0xFF008080))),
             ],
           ),
           _buildElement(Icons.timer, "Odbiór: 10:00 - 14:00"),

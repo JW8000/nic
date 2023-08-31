@@ -26,7 +26,7 @@ Widget _buildShopTitle() {
         children: [
           _buildAvatar(),
           const SizedBox(width: 8),
-          const Text("Lidl", style: AppText.textName),
+          Text("Lidl", style: AppText.title.copyWith(color: Colors.white)),
         ],
       ),
     ),
